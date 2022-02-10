@@ -2,9 +2,12 @@
 
 verb-tamper(){
                 for method in GET POST PUT DELETE HEAD; do
-                        echo $method: $(curl -s -k $1 -X $method -o /dev/null -$
+                        echo $method: $(curl -s -k $1 -X $method -o /dev/null -w '%{http_code}-%{size_download}')
                 done
 }
+
+
+
 
 
 
